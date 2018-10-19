@@ -59,32 +59,33 @@ function faktorPrima(num) {
   // your code here
   let result = ''
   let prima = [2]
-  for(let i = 3; i < num; i++) {
+  for (let i = 3; i < num; i++) {
     let cek = true
-    for(let j = 2; j < i; j++) {
-      if(i % j === 0) {
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
         cek = false
       }
     }
-    if(cek === true) {
+    if (cek === true) {
       prima.push(i)
     }
   }
+  prima.push(num)
   // console.log(prima)
   let calculate = num
-  for(let i = 0; i < prima.length; i++) {
+  for (let i = 0; i < prima.length; i++) {
     let counter = 0
-    for(let j = 0; j < 10; j++) {
-      if(calculate % prima[i] === 0) {
+    for (let j = 0; j < 10; j++) {
+      if (calculate % prima[i] === 0) {
         calculate = calculate / prima[i]
         counter += 1
       }
     }
-    if(counter !== 0) {
-      result += prima[i] + ' pangkat ' + counter + '. '
+    if (counter !== 0) {
+      result += prima[i] + ' pangkat ' + counter + ', '
     }
   }
-  return result
+  return result.slice(0, result.length - 2)
 }
 
 console.log(faktorPrima(90)); // 2 pangkat 1, 3 pangkat 2, 5 pangkat 1
